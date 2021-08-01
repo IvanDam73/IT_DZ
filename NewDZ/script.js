@@ -21,14 +21,14 @@ const days = (age/4)+(age*365);
 const futureAges = (Number(age) + 5);
 const gender = confirm('Ваш пол мужской?');
 
-const result = [`Ваше Ф.И.О. : ${secondName} ${firstName} ${dadName}
+const result = `Ваше Ф.И.О. : ${secondName} ${firstName} ${dadName}
 Ваш возраст : ${age}
 Ваш возраст в днях : ${days}
 Через 5 лет Вам будет : ${futureAges}
 Ваш пол : ${yourGender(gender)} 
-Вы на пенсии : ${old(age, gender)}`];
+Вы на пенсии : ${old(age, gender)}`;
 
-const a = alert(`${result}`);
+alert(result);
 
 
 
