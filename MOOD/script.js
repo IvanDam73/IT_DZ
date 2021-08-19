@@ -1,17 +1,48 @@
-"use strict";
+"use strict"
 
-    function randomDiap(n,m) {
-            return Math.floor(Math.random()*(m-n+1))+n;
-    }
+function HashStorageFunc(key, ...args) {
+    this.value=args;
+    this.key=key;
+    let myHash = {};
 
-    function mood(colorsCount) {
-        var colors=[ '', 'красный', 'оранжевый', 'жёлтый', 'зелёный', 'голубой', 'синий', 'фиолетовый' ];
-        console.log( 'цветов: ' + colorsCount );
-        for ( var i=1; i<=colorsCount; i++ ) {
-            var n=randomDiap(1,7);
-            var colorName = colors[n];
-            console.log(colorName);
+
+    HashStorageFunc.prototype.addValue = function(key, value){
+        return (myHash[key]=value);
+    };
+
+    HashStorageFunc.prototype.getValue = function(key){
+        if(myHash[key]){
+            return myHash.value;
+        }else{
+            return undefined;
         }
-    }
+    };
 
-mood(3);
+    HashStorageFunc.prototype.deleteValue = function(key){
+        if(!myHash[key]){
+            return false;
+        }else{
+            delete myHash.value;
+        }
+    };
+
+    HashStorageFunc.prototype.getKeys = function(){
+        return Object.keys(myHash);
+    };
+    
+    return myHash;
+} 
+
+
+
+let drinkStorage = new HashStorageFunc('Маргарита', 'Алкогольный', 'продукт, продукт... смешать...');
+
+
+function enterInfo(){
+prompt('Введите название напитка', '');
+prompt('Алкогольный он?', '');
+prompt('Как он готовиться?', '');
+}
+
+
+
