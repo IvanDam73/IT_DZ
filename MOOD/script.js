@@ -1,7 +1,7 @@
 "use strict"
 
 function HashStorageFunc() {
-    let myHash = {};
+    var myHash = {};
 
     this.addValue = function(key, value){
         return (myHash[key]=value);
@@ -30,10 +30,10 @@ function HashStorageFunc() {
     return myHash;
 } 
 
-let drinkStorage = new HashStorageFunc();
+var drinkStorage = new HashStorageFunc();
 
 
-function enterInfo(){
+function enterInfo(){         //функция-хранилище, которая сохраняет введённые данные, и отдает другим функциям-кнопкам
 var g = {};
 
 do{
@@ -59,8 +59,10 @@ console.log(g);
 
 
 
-function drinkInfo(){
-let info = prompt('Введите название напитка', '');
+function drinkInfo(){   //эта функция принимает название напитка и сравнивает его с имеющимся в хранилище(первая функция)
+do{
+    var info = prompt('Введите название напитка', '');
+}while(!info);
     if(info in g){
         alert(drinkStorage.getKeys);
     }else{
@@ -70,10 +72,12 @@ let info = prompt('Введите название напитка', '');
 }
 
 
-function deleteInfo(){
-    let del = prompt('Какой напиток удалить?', '');
-    if(del == info){   
-        drinkStorage.deleteValue;
+function deleteInfo(){    //эта удаляет по той же схеме, что и придыдущая ищет
+do{
+    var del = prompt('Какой напиток удалить?', '');
+}while(!del);
+    if(del in g){   
+        delete g[del];
         alert('Напиток удалён!');
     }else{
         alert('Напиток не найден!');
@@ -82,6 +86,6 @@ function deleteInfo(){
 }
 
 
-function allDrinks(){
-    return drinkStorage.getKeys;
+function allDrinks(){   //эта отдает массив ключей хранилища
+    return Object.keys(g);
 }
