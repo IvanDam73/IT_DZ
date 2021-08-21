@@ -40,6 +40,7 @@ do{
     var first  = prompt('Введите название напитка', '');
 }while(!first);
 
+g['Напиток'] = first;
 
 do{
     var second =    prompt('Алкогольный он?', '');
