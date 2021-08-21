@@ -3,7 +3,6 @@
 function HashStorageFunc() {
     let myHash = {};
 
-
     this.addValue = function(key, value){
         return (myHash[key]=value);
     };
@@ -35,31 +34,54 @@ let drinkStorage = new HashStorageFunc();
 
 
 function enterInfo(){
+var g = {};
+
 do{
     var first  = prompt('Введите название напитка', '');
 }while(!first);
+
 
 do{
     var second =    prompt('Алкогольный он?', '');
 }while(!second);
 
+g['Алкоголь'] = second;
+
 do{
     var third = prompt('Как он готовиться?', '');
 }while(!third);
+
+g['Рецепт приготовления'] = third;
  
-var g = {'напиток': first, 'алкогольный': second, 'Рецепт приготовления': third};
 console.log(g);
 }
 
 
 
 
-// function drinkInfo(){
-// let info = prompt('Введите название напитка', '');
-//     if(info == ){
-//         alert();
-//     }else{
-//         alert('Такого напитка нет!');
-//     }
-// }
+function drinkInfo(){
+let info = prompt('Введите название напитка', '');
+    if(info in g){
+        alert(drinkStorage.getKeys);
+    }else{
+        alert('Такого напитка нет!');
+    }
+    return;
+}
 
+
+function deleteInfo(){
+    let del = prompt('Какой напиток удалить?', '');
+    if(del == info){   
+        drinkStorage.deleteValue;
+        alert('Напиток удалён!');
+    }else{
+        alert('Напиток не найден!');
+    }
+    return;
+}
+
+
+function allDrinks(){
+    return drinkStorage.getKeys;
+}
