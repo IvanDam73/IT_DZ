@@ -1,48 +1,65 @@
 "use strict"
 
-function HashStorageFunc(key, ...args) {
-    this.value=args;
-    this.key=key;
+function HashStorageFunc() {
     let myHash = {};
 
 
-    HashStorageFunc.prototype.addValue = function(key, value){
+    this.addValue = function(key, value){
         return (myHash[key]=value);
     };
 
-    HashStorageFunc.prototype.getValue = function(key){
+    this.getValue = function(key){
         if(myHash[key]){
-            return myHash.value;
+            return myHash[key];
         }else{
             return undefined;
         }
     };
 
-    HashStorageFunc.prototype.deleteValue = function(key){
+    this.deleteValue = function(key){
         if(!myHash[key]){
             return false;
         }else{
-            delete myHash.value;
+            delete myHash.key;
         }
     };
 
-    HashStorageFunc.prototype.getKeys = function(){
+    this.getKeys = function(){
         return Object.keys(myHash);
     };
     
     return myHash;
 } 
 
-
-
-let drinkStorage = new HashStorageFunc('Маргарита', 'Алкогольный', 'продукт, продукт... смешать...');
+let drinkStorage = new HashStorageFunc();
 
 
 function enterInfo(){
-prompt('Введите название напитка', '');
-prompt('Алкогольный он?', '');
-prompt('Как он готовиться?', '');
+do{
+    var first  = prompt('Введите название напитка', '');
+}while(!first);
+
+do{
+    var second =    prompt('Алкогольный он?', '');
+}while(!second);
+
+do{
+    var third = prompt('Как он готовиться?', '');
+}while(!third);
+ 
+var g = {'напиток': first, 'алкогольный': second, 'Рецепт приготовления': third};
+console.log(g);
 }
 
 
+
+
+// function drinkInfo(){
+// let info = prompt('Введите название напитка', '');
+//     if(info == ){
+//         alert();
+//     }else{
+//         alert('Такого напитка нет!');
+//     }
+// }
 
